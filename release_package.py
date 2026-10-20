@@ -16,7 +16,11 @@ SEEDS = {'chat-answers.json', 'quiz-reviewed.json'}
 
 
 def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    digest = hashlib.sha256()
+    with path.open('rb') as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def write_json(path, value):
@@ -72,7 +76,8 @@ def package(root, output, notes):
         raise ValueError('Public bank schema differs')
     if not all(isinstance(k, str) and isinstance(v, str) for k, v in quiz.items()):
         raise ValueError('Public reviewed bank schema differs')
-    if len(notes) > 32000:
+    # Clients reject update.json over 64 KiB; it is written as UTF-8, not ASCII.
+    if len(notes.encode('utf-8')) > 32000:
         raise ValueError('Release notes too long')
     output.mkdir(parents=True, exist_ok=False)
     asset = output / f'Naruto-Collector-{APP_VERSION}-Windows.zip'
