@@ -1,7 +1,7 @@
 # naruto-collector
 Naruto Collector for Windows — releases, automatic update feed, and publishing tools.
 
-Get the complete Windows ZIP from [Releases](https://github.com/Abotboot/naruto-collector/releases/latest). Version 93.1.3 automatically expires eligible old Strong/Wanted battle holds once idle, preserving unknown outcomes and earned history. A 24-hour cooldown excludes the exact unresolved action while other automation continues. Previous team, Han and responsiveness improvements remain included. See the release notes for verification and live-testing limits.
+Get the complete Windows ZIP from [Releases](https://github.com/Abotboot/naruto-collector/releases/latest). Version 93.1.4 preserves Survival battle teams and reset checkpoints through the rewards stage. Completed verified passes survive later archive/report errors; exact historical interrupted copies recover without replaying gameplay. Previous old-hold expiry, team, Han and responsiveness improvements remain included. See the release notes for verification and live-testing limits.
 
 Extract the full ZIP into one folder. Keep `_internal` and `Naruto Update Helper.exe` beside `Naruto Collector.exe`; Python is not required. See [Quick start](QUICKSTART.md) for game/CDP setup and the one-time upgrade from older clients.
 
