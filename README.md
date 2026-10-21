@@ -1,7 +1,7 @@
 # naruto-collector
 Naruto Collector for Windows — releases, automatic update feed, and publishing tools.
 
-Get the complete Windows ZIP from [Releases](https://github.com/Abotboot/naruto-collector/releases/latest). Version 93.1.1 improves owned-team suggestions, Han's optional cooldown/Auto recovery helper and long-running responsiveness. See the release notes for verification and live-testing limits.
+Get the complete Windows ZIP from [Releases](https://github.com/Abotboot/naruto-collector/releases/latest). Version 93.1.2 improves Strong Approaching heartbeat tolerance and guarded read-only receipt recovery. Previous team, Han and responsiveness improvements remain included. See the release notes for verification and live-testing limits.
 
 Extract the full ZIP into one folder. Keep `_internal` and `Naruto Update Helper.exe` beside `Naruto Collector.exe`; Python is not required. See [Quick start](QUICKSTART.md) for game/CDP setup and the one-time upgrade from older clients.
 
