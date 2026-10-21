@@ -79,8 +79,15 @@ def package(root, output, notes):
     # Clients reject update.json over 64 KiB; it is written as UTF-8, not ASCII.
     if len(notes.encode('utf-8')) > 32000:
         raise ValueError('Release notes too long')
-    output.mkdir(parents=True, exist_ok=False)
     asset = output / f'Naruto-Collector-{APP_VERSION}-Windows.zip'
+    manifest = dict(schemaVersion=1, appId=APP_ID, version=APP_VERSION,
+                    url=f'https://github.com/{UPDATE_REPOSITORY}/releases/download/v{APP_VERSION}/{asset.name}',
+                    size=2**63 - 1, sha256='0' * 64, notes=notes)
+    # JSON escapes control characters; the UTF-8 notes bound alone is insufficient.
+    # Reserve the largest supported size field before creating an immutable bundle.
+    if len((json.dumps(manifest, ensure_ascii=False, sort_keys=True, indent=2) + '\n').encode('utf-8')) > 65536:
+        raise ValueError('Serialized update manifest too long')
+    output.mkdir(parents=True, exist_ok=False)
     with zipfile.ZipFile(asset, 'x', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for name in sorted([*files, 'app-release.json']):
             item = zipfile.ZipInfo(name, (2020, 1, 1, 0, 0, 0))
@@ -90,9 +97,7 @@ def package(root, output, notes):
     # Detect source mutation while packaging.
     if inventory(root) != files:
         raise ValueError('Runtime changed during packaging')
-    manifest = dict(schemaVersion=1, appId=APP_ID, version=APP_VERSION,
-                    url=f'https://github.com/{UPDATE_REPOSITORY}/releases/download/v{APP_VERSION}/{asset.name}',
-                    size=asset.stat().st_size, sha256=sha(asset), notes=notes)
+    manifest.update(size=asset.stat().st_size, sha256=sha(asset))
     write_json(output / 'update.json', manifest)
     (output / 'app-release.json').write_bytes((root / 'app-release.json').read_bytes())
     (output / 'RELEASE-NOTES.md').write_text(notes + '\n', encoding='utf-8')
