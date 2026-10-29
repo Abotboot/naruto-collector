@@ -2,7 +2,7 @@
 
 Download the Windows ZIP from this repository's latest release. Extract the whole ZIP into a normal writable folder, then open **Naruto Collector.exe**. Keep the `_internal` folder and update helper beside it.
 
-This is the first version with built-in updates. Install it once manually; later releases can be offered automatically at startup. **Help → Check for updates** checks immediately. Updates show release notes and offer Install, Later, or Skip this version. Finish the current pass and stop Auto before installing. The app closes, updates, and restarts.
+Versions 93.0.0 and later have built-in updates. Existing users can use **Help → Check for updates**, or receive an offer at startup when startup checks are enabled. No manual extraction is needed for an in-app update. Updates show release notes and offer Install, Later, or Skip this version. Finish the current pass and stop Auto before installing. The app closes, updates, and restarts.
 
 Existing profiles, settings, reward history, pending receipts, and local answer banks are preserved during in-app updates. An update does not clear an unresolved gameplay receipt without verification.
 
