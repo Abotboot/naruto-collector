@@ -1,7 +1,7 @@
 # naruto-collector
 Naruto Collector for Windows — releases, automatic update feed, and publishing tools.
 
-Get the complete Windows ZIP from [Releases](https://github.com/Abotboot/naruto-collector/releases/latest). Version 93.1.18 explains the prerequisite blocking automatic receipt recovery in both the pass error and Auto recheck. It identifies unavailable callbacks, loading resources, account metadata, other pending journals or native status flags instead of repeating only the original unverified-action message. Existing recovery rules and original evidence remain protected. This is a diagnostic update; it does not claim a held account has recovered. Prior Wanted and Wishing Tree recovery fixes are included. See release notes for qualification and limits.
+Get the complete Windows ZIP from [Releases](https://github.com/Abotboot/naruto-collector/releases/latest). Version 93.1.19 recovers the narrowly identified Survival reset hold when its original free-reset ACK and saved checkpoint prove the reset already happened, its separate journal was archived, and current account/idle/resource checks pass. The original parent outcome stays unknown and nothing is replayed. The receipt dialog now confirms local refreshes and explains unchanged records. Prior recovery diagnostics and fixes are included. See release notes for qualification and limits.
 
 Extract the full ZIP into one folder. Keep `_internal` and `Naruto Update Helper.exe` beside `Naruto Collector.exe`; Python is not required. See [Quick start](QUICKSTART.md) for game/CDP setup and the one-time upgrade from older clients.
 
